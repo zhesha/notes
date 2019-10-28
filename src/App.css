@@ -3,3 +3,10 @@ html, body, #root, .board {
   width: 100%;
   background: cornsilk;
 }
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}

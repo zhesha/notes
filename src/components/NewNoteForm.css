@@ -1,0 +1,14 @@
+.newNote {
+    margin: 6px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+}
+
+.newNote textarea {
+    width: 96px;
+    padding: 2px;
+    border: none;
+    resize: none;
+}

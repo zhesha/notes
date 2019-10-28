@@ -19,10 +19,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"./src/**/*.js\" \"./src/**/*.jsx\"",
-    "prittify": "prettier --write \"**/*.js\""
+    "prittify": "prettier --write \"**/*.js\" \"**/*.jsx\""
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "browserslist": {
     "production": [
