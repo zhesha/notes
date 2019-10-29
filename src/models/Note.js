@@ -10,7 +10,7 @@ export default class Note {
   }
 
   get text() {
-    return this._text;
+    return this._text || '';
   }
 
   get date() {
@@ -27,5 +27,20 @@ export default class Note {
 
   get color() {
     return this._color || '888888';
+  }
+
+  asJSON() {
+    return {
+      text: this._text,
+      date: this._date,
+      name: this._name,
+      avatar: this._avatar,
+      color: this._color,
+    }
+  }
+
+  static fromJSON (data) {
+    const {avatar, name, color, text, date} = data;
+    return new Note(avatar, name, color, text, date);
   }
 }

@@ -5,7 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import store from './store'
+import axios from "axios";
 
+axios.defaults.baseURL = 'http://localhost:1337';
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>

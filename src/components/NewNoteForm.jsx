@@ -7,8 +7,19 @@ import {connect} from "react-redux";
 import newNoteActions from "../actions/newNote.actions";
 import formVisibleAction from "../actions/formVisible.actions";
 import noteListAction from "../actions/noteList.actions";
+import {PulseLoader} from "react-spinners";
 
-function NewNoteForm({newNote, hideForm, updateNewNote, addNote, cleanNewNote}) {
+function NewNoteForm({newNote, hideForm, updateNewNote, addNote, cleanNewNote, waiting}) {
+  if (waiting) {
+    return (<div className="newNote">
+      <div className="loader">
+        <PulseLoader
+          size={15}
+          color={'#444'}
+        />
+      </div>
+    </div>);
+  }
   return (
     <div className="newNote">
       <form onSubmit={e => {
@@ -51,8 +62,11 @@ function NewNoteForm({newNote, hideForm, updateNewNote, addNote, cleanNewNote}) 
 }
 
 const mapStateToProps = state => {
-  const { newNote } = state;
-  return { newNote };
+  const { newNote, noteList } = state;
+  return {
+    newNote,
+    waiting: noteList.adding
+  };
 };
 
 export default connect(mapStateToProps, {
