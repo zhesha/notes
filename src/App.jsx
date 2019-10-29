@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import AddButton from './components/AddButton';
 import NewNoteForm from './components/NewNoteForm';
-import Note from './components/Note';
+import NoteItem from './components/NoteItem';
+import Note from './models/Note';
 
 class App extends Component {
   state = {
@@ -18,10 +19,13 @@ class App extends Component {
     this.setState({ showForm: false });
   };
 
-  createNote = title => {
+  createNote = (avatar, name, color, text) => {
     this.setState({
       showForm: false,
-      notes: [title, ...this.state.notes]
+      notes: [
+        new Note(avatar, name, color, text, new Date()),
+        ...this.state.notes
+      ]
     });
   };
 
@@ -32,7 +36,7 @@ class App extends Component {
           <NewNoteForm onCancel={this.closeForm} onCreate={this.createNote} />
         )}
         {this.state.notes.map((note, i) => (
-          <Note title={note} key={i} />
+          <NoteItem data={note} key={i} />
         ))}
         <AddButton onAdd={this.addNote} />
       </div>

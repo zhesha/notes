@@ -1,0 +1,42 @@
+.note {
+    margin: 6px;
+    padding: 10px;
+    width: var(--note-size);
+    height: var(--note-size);
+}
+
+.note .noteHead {
+    display: flex;
+    align-items: center;
+}
+
+.note img {
+    height: 26px;
+    width: 26px;
+}
+
+.note .name {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #444444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note .text {
+    height: 137px;
+    margin: 16px 0 6px 0;
+    font-weight: bold;
+    color: #444;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.note .date {
+    color: #444;
+    font-size: 12px;
+    text-align: right;
+}

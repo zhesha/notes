@@ -1,3 +1,8 @@
+:root {
+  --note-size: 200px;
+  --textarea-padding: 2px;
+}
+
 html, body, #root, .board {
   height: 100%;
   width: 100%;
