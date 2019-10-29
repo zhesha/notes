@@ -1,47 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import AddButton from './components/AddButton';
 import NewNoteForm from './components/NewNoteForm';
 import NoteItem from './components/NoteItem';
 import Note from './models/Note';
+import {connect} from "react-redux";
+import formVisibleAction from "./actions/formVisible.actions";
+import noteListAction from "./actions/noteList.action";
 
-class App extends Component {
-  state = {
-    showForm: true,
-    notes: []
-  };
-
-  addNote = () => {
-    this.setState({ showForm: true });
-  };
-
-  closeForm = () => {
-    this.setState({ showForm: false });
-  };
-
-  createNote = (avatar, name, color, text) => {
-    this.setState({
-      showForm: false,
-      notes: [
-        new Note(avatar, name, color, text, new Date()),
-        ...this.state.notes
-      ]
-    });
-  };
-
-  render() {
-    return (
-      <div className="board">
-        {this.state.showForm && (
-          <NewNoteForm onCancel={this.closeForm} onCreate={this.createNote} />
-        )}
-        {this.state.notes.map((note, i) => (
-          <NoteItem data={note} key={i} />
-        ))}
-        <AddButton onAdd={this.addNote} />
-      </div>
-    );
-  }
+function App(props) {
+  const {formVisible, noteList, showForm, hideForm, addNote} = props;
+  return (
+    <div className="board">
+      {formVisible && (
+        <NewNoteForm onCancel={hideForm} onCreate={(avatar, name, color, text) => {
+          hideForm();
+          addNote(new Note(avatar, name, color, text, new Date()));
+        }}/>
+      )}
+      {noteList.map((note, i) => (
+        <NoteItem data={note} key={i}/>
+      ))}
+      <AddButton onAdd={showForm}/>
+    </div>
+  );
 }
 
-export default App;
+const mapStateToProps = state => {
+  const { formVisible, noteList } = state;
+  return { formVisible, noteList };
+};
+
+export default connect(mapStateToProps, {
+  showForm: formVisibleAction.showForm,
+  hideForm: formVisibleAction.hideForm,
+  addNote: noteListAction.addNote,
+})(App);
