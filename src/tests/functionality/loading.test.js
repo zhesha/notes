@@ -68,7 +68,7 @@ it('renders error', async () => {
 
 it('renders item', async () => {
   mock.onGet('/').reply(200, {
-    notes: [{text: 'test'}]
+    notes: [{ text: 'test' }]
   });
 
   await act(async () => {

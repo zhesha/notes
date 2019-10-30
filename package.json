@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.0",
     "axios-mock-adapter": "^1.17.0",
     "redux-mock-store": "^1.5.3"
   },

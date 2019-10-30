@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-import {Provider} from "react-redux";
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import rootReducer from "../reducers";
-import thunk from "redux-thunk";
+import rootReducer from '../reducers';
+import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
@@ -24,7 +24,6 @@ it('reducer create initial state', () => {
   expect(state).toEqual(initialState);
 });
 it('renders without crashing', () => {
-
   const store = mockStore(initialState);
   const div = document.createElement('div');
   ReactDOM.render(
