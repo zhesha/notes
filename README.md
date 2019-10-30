@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.com/zhesha/note.svg?branch=ci)
+![Build Status](https://travis-ci.com/zhesha/notes.svg?branch=master)
 
 ### To install all dependencies run:
 
