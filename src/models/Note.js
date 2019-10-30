@@ -1,4 +1,6 @@
 import moment from 'moment';
+import messages from '../config/messages.config';
+import config from '../config';
 
 export default class Note {
   constructor(avatar, name, color, text, date) {
@@ -10,15 +12,15 @@ export default class Note {
   }
 
   get text() {
-    return this._text || '';
+    return this._text || messages.default.text;
   }
 
   get date() {
-    return moment(this._date).format('lll');
+    return moment(this._date).format(config.dateFormat);
   }
 
   get name() {
-    return this._name || 'Anonymous';
+    return this._name || messages.default.name;
   }
 
   get avatar() {
@@ -26,7 +28,7 @@ export default class Note {
   }
 
   get color() {
-    return this._color || '888888';
+    return this._color || messages.default.color;
   }
 
   asJSON() {

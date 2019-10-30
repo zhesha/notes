@@ -8,6 +8,8 @@ import newNoteActions from '../actions/newNote.actions';
 import formVisibleAction from '../actions/formVisible.actions';
 import noteListAction from '../actions/noteList.actions';
 import { PulseLoader } from 'react-spinners';
+import colors from '../config/colors.config';
+import messages from '../config/messages.config';
 
 function NewNoteForm({
   newNote,
@@ -19,15 +21,15 @@ function NewNoteForm({
 }) {
   if (waiting) {
     return (
-      <div className="newNote">
+      <div className="newNote" style={{ background: `#${colors.newNote}` }}>
         <div className="loader">
-          <PulseLoader size={15} color={'#444'} />
+          <PulseLoader size={15} color={colors.noteContrast} />
         </div>
       </div>
     );
   }
   return (
-    <div className="newNote">
+    <div className="newNote" style={{ background: `#${colors.newNote}` }}>
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -48,7 +50,7 @@ function NewNoteForm({
           <input
             className="nameField"
             value={newNote.name}
-            placeholder={'Anonymous'}
+            placeholder={messages.default.name}
             onChange={e => updateNewNote({ name: e.target.value })}
           />
           <ColorSelector
@@ -61,8 +63,8 @@ function NewNoteForm({
           onChange={e => updateNewNote({ text: e.target.value })}
         />
         <div className="formFooter">
-          <input type="button" value="CANCEL" onClick={hideForm} />
-          <input type="submit" value="OK" />
+          <input type="button" value={messages.cancelBtn} onClick={hideForm} />
+          <input type="submit" value={messages.okBtn} />
         </div>
       </form>
     </div>

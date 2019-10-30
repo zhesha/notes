@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './GravatarInput.css';
 import { FaCheckCircle, FaUserCircle } from 'react-icons/fa';
 import md5 from 'md5';
+import messages from '../../config/messages.config';
+import colors from '../../config/colors.config';
+import config from '../../config';
 
 class GravatarInput extends Component {
   state = {
@@ -29,7 +32,7 @@ class GravatarInput extends Component {
             className="avatarEmailField"
             type="email"
             value={this.state.email}
-            placeholder={'Gravatar Email'}
+            placeholder={messages.emailTitle}
             onChange={e => this.setState({ email: e.target.value })}
           />
           <button
@@ -37,7 +40,7 @@ class GravatarInput extends Component {
             className="avatarButton"
             onClick={() => this.onApply()}
           >
-            <FaCheckCircle size={26} color="fff" />
+            <FaCheckCircle size={26} color={colors.gravatarContrast} />
           </button>
         </div>
       );
@@ -49,12 +52,9 @@ class GravatarInput extends Component {
           onClick={() => this.setState({ isEditMode: !this.state.isEditMode })}
         >
           {value ? (
-            <img
-              src={`https://www.gravatar.com/avatar/${value}?s=26`}
-              alt="avatar"
-            />
+            <img src={config.avatarPath(value)} alt="avatar" />
           ) : (
-            <FaUserCircle size={26} color="444" />
+            <FaUserCircle size={26} color={colors.newContrast} />
           )}
         </button>
       );

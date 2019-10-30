@@ -1,9 +1,17 @@
 :root {
   --note-size: 200px;
   --textarea-padding: 2px;
+  --avatar-contrast: #fff;
+  --avatar-color: #1e8cbe;
+  --note-contrast: #444;
+  --note-contrast-hover: #777;
+  --color-variant-highlight: #fff;
 }
 
-html, body, #root, .board {
+html,
+body,
+#root,
+.board {
   height: 100%;
   width: 100%;
   background: cornsilk;

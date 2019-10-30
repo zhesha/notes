@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ColorSelector.css';
 import { FaPalette } from 'react-icons/fa';
+import colors from '../../config/colors.config';
 
 class ColorSelector extends Component {
   state = {
@@ -15,21 +16,15 @@ class ColorSelector extends Component {
 
   render() {
     const { value } = this.props;
-    const colors = [
-      '888888',
-      'BE8F32',
-      'BE3934',
-      'BE2D85',
-      'AE35BE',
-      '6834BE',
-      '3552BE',
-      '3699BE'
-    ];
-    const current = value || colors[0];
+    const colorsList = colors.list;
+    const current = value || colors.default;
     if (this.state.isEditMode) {
       return (
-        <div className="colorWrapper">
-          {colors.map((color, i) => (
+        <div
+          className="colorWrapper"
+          style={{ background: `#${colors.variantContrast}` }}
+        >
+          {colorsList.map((color, i) => (
             <button
               type="button"
               className={

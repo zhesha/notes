@@ -1,18 +1,20 @@
 import React from 'react';
 import './NoteItem.css';
 import { FaUserSecret } from 'react-icons/fa';
+import config from '../config';
+import colors from '../config/colors.config';
 
 function NoteItem({ data }) {
   return (
-    <div className="note" style={{ background: `#${data.color}` }}>
+    <div
+      className="note"
+      style={{ background: `#${data.color}`, color: `#${colors.noteContrast}` }}
+    >
       <div className="noteHead">
         {data.avatar ? (
-          <img
-            src={`https://www.gravatar.com/avatar/${data.avatar}?s=26`}
-            alt="avatar"
-          />
+          <img src={config.avatarPath(data.avatar)} alt="avatar" />
         ) : (
-          <FaUserSecret size={26} color="444" />
+          <FaUserSecret size={26} color={colors.noteContrast} />
         )}
         <div className="name">{data.name}</div>
       </div>

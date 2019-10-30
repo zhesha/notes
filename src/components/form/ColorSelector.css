@@ -1,37 +1,36 @@
 .colorWrapper {
-    position: absolute;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: var(--note-size);
-    padding: 10px;
-    margin-top: -10px;
-    margin-left: -10px;
-    background: #9bbe92;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: var(--note-size);
+  padding: 10px;
+  margin-top: -10px;
+  margin-left: -10px;
 }
 
 .colorWrapper .colorVariant {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
 }
 
 .colorWrapper .currentColor {
-    width: 26px;
-    height: 26px;
-    border-radius: 13px;
-    border: 1px solid #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  border: 1px solid var(--color-variant-highlight);
 }
 
 .colorButton {
-    background: none;
-    border: none;
-    outline: none;
-    width: 26px;
-    height: 26px;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
 }

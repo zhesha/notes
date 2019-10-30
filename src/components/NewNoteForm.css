@@ -1,59 +1,58 @@
 .newNote {
-    margin: 6px;
-    padding: 10px;
-    width: var(--note-size);
-    height: var(--note-size);
-    background: lightgreen;
+  margin: 6px;
+  padding: 10px;
+  width: var(--note-size);
+  height: var(--note-size);
 }
 
 .newNote textarea {
-    width: calc(var(--note-size) - var(--textarea-padding) * 2);
-    height: 141px;
-    padding: var(--textarea-padding);
-    border: none;
-    resize: none;
-    outline: none;
-    background: none;
-    color: #444;
-    font-weight: bold;
-    font-size: 11px;
+  width: calc(var(--note-size) - var(--textarea-padding) * 2);
+  height: 141px;
+  padding: var(--textarea-padding);
+  border: none;
+  resize: none;
+  outline: none;
+  background: none;
+  color: var(--note-contrast);
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .newNote .formHead {
-    display: flex;
-    margin-bottom: 10px;
-    justify-content: space-between;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .newNote .formFooter {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .newNote .formFooter input {
-    background: none;
-    border: none;
-    outline: none;
-    color: #444;
-    font-weight: bold;
-    font-size: 11px;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--note-contrast);
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .newNote .formFooter input:hover {
-    color: #777;
+  color: var(--note-contrast-hover);
 }
 
 .newNote .nameField {
-    padding: 0;
-    border: none;
-    border-bottom: 2px solid #444;
-    outline: none;
-    background: transparent;
-    font-weight: bold;
-    font-size: 11px;
-    color: #444;
+  padding: 0;
+  border: none;
+  border-bottom: 2px solid var(--note-contrast);
+  outline: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 11px;
+  color: var(--note-contrast);
 }
 
 .newNote .nameField::placeholder {
-    color: #444;
+  color: var(--note-contrast);
 }

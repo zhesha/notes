@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import noteListActions from './actions/noteList.actions';
 import Note from './models/Note';
 import { PulseLoader } from 'react-spinners';
+import colors from './config/colors.config';
+import messages from './config/messages.config';
 
 class App extends Component {
   componentDidMount() {
@@ -20,11 +22,11 @@ class App extends Component {
     if (noteList.loading) {
       content = (
         <div className="loader">
-          <PulseLoader size={50} color={'lightgreen'} />
+          <PulseLoader size={50} color={colors.newNote} />
         </div>
       );
     } else if (noteList.error) {
-      content = <div className="error">Error occurred, try again later</div>;
+      content = <div className="error">{messages.loadError}</div>;
     } else {
       content = (
         <div className="board">
