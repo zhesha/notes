@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './GravatarInput.css';
-import { FaCheckCircle, FaUserCircle } from 'react-icons/all';
+import { FaCheckCircle, FaUserCircle } from 'react-icons/fa';
 import md5 from 'md5';
 
 class GravatarInput extends Component {

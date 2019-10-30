@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './ColorSelector.css';
-import {FaPalette} from 'react-icons/all';
+import {FaPalette} from 'react-icons/fa';
 
 class ColorSelector extends Component {
   state = {

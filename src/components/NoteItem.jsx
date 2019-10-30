@@ -1,6 +1,6 @@
 import React from 'react';
 import './NoteItem.css';
-import { FaUserSecret } from 'react-icons/all';
+import { FaUserSecret } from 'react-icons/fa';
 
 function NoteItem({ data }) {
   return (
