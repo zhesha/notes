@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint \"./src/**/*.js\" \"./src/**/*.jsx\"",
     "prittify": "prettier --write \"**/*.js\" \"**/*.jsx\""
@@ -49,5 +50,13 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.17.0",
     "redux-mock-store": "^1.5.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!src/serviceWorker.js",
+      "!src/index.jsx",
+      "!src/store.js"
+    ]
   }
 }
