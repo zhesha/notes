@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './ColorSelector.css';
-import {FaPalette} from 'react-icons/fa';
+import { FaPalette } from 'react-icons/fa';
 
 class ColorSelector extends Component {
   state = {
@@ -8,7 +8,7 @@ class ColorSelector extends Component {
   };
 
   onSelect = color => {
-    const {onChange} = this.props;
+    const { onChange } = this.props;
     onChange(color);
     this.setState({ isEditMode: false });
   };

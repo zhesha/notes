@@ -35,12 +35,12 @@ export default class Note {
       date: this._date,
       name: this._name,
       avatar: this._avatar,
-      color: this._color,
-    }
+      color: this._color
+    };
   }
 
-  static fromJSON (data) {
-    const {avatar, name, color, text, date} = data;
+  static fromJSON(data) {
+    const { avatar, name, color, text, date } = data;
     return new Note(avatar, name, color, text, date);
   }
 }

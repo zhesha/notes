@@ -10,7 +10,7 @@ class GravatarInput extends Component {
   };
 
   onApply = () => {
-    const {onChange} = this.props;
+    const { onChange } = this.props;
     const email = this.state.email.trim();
     let hash;
     if (email) {

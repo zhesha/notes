@@ -20,4 +20,4 @@ const formVisible = (state = initialState, action) => {
 };
 
 export default formVisible;
-export {formVisibleActionType};
+export { formVisibleActionType };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import './AddButton.css';
-import {connect} from "react-redux";
-import formVisibleAction from "../actions/formVisible.actions";
+import { connect } from 'react-redux';
+import formVisibleAction from '../actions/formVisible.actions';
 
 function AddButton({ showForm }) {
   return (
@@ -14,6 +14,9 @@ function AddButton({ showForm }) {
   );
 }
 
-export default connect(null, {
-  showForm: formVisibleAction.showForm,
-})(AddButton);
+export default connect(
+  null,
+  {
+    showForm: formVisibleAction.showForm
+  }
+)(AddButton);

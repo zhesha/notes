@@ -1,6 +1,6 @@
 const newNoteActionType = {
   UPDATE_DATA: 'UPDATE_DATA',
-  CLEAN: 'CLEAN',
+  CLEAN: 'CLEAN'
 };
 
 const initialState = {
@@ -15,8 +15,8 @@ const newNote = (state = initialState, action) => {
     case newNoteActionType.UPDATE_DATA: {
       return {
         ...state,
-        ...action.data,
-      }
+        ...action.data
+      };
     }
     case newNoteActionType.CLEAN: {
       return initialState;
@@ -28,4 +28,4 @@ const newNote = (state = initialState, action) => {
 };
 
 export default newNote;
-export {newNoteActionType};
+export { newNoteActionType };

@@ -9,13 +9,13 @@ const proxy = http.createServer((req, res) => {
     'Access-Control-Allow-Methods': 'POST, GET',
     'Access-Control-Allow-Headers': 'content-type'
   };
-  if (req.method === "POST") {
-    let queryData = "";
+  if (req.method === 'POST') {
+    let queryData = '';
     req.on('data', function(data) {
       queryData += data;
-      if(queryData.length > 1e6) {
-        queryData = "";
-        res.writeHead(413, {'Content-Type': 'text/plain'}).end();
+      if (queryData.length > 1e6) {
+        queryData = '';
+        res.writeHead(413, { 'Content-Type': 'text/plain' }).end();
         req.connection.destroy();
       }
     });
@@ -24,11 +24,11 @@ const proxy = http.createServer((req, res) => {
       const data = JSON.parse(queryData);
       notes.unshift(data);
       res.writeHead(200, header);
-      res.end(JSON.stringify({notes: notes}));
+      res.end(JSON.stringify({ notes: notes }));
     });
   } else {
     res.writeHead(200, header);
-    res.end(JSON.stringify({notes: notes}));
+    res.end(JSON.stringify({ notes: notes }));
   }
 });
 
