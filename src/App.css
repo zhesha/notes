@@ -3,9 +3,9 @@
   --textarea-padding: 2px;
   --avatar-contrast: #fff;
   --avatar-color: #1e8cbe;
-  --note-contrast: #444;
-  --note-contrast-hover: #777;
-  --color-variant-highlight: #fff;
+  --note-contrast: #f3f3f3;
+  --note-contrast-hover: #d9d9d9;
+  --color-variant-highlight: #000;
 }
 
 html,
@@ -14,7 +14,7 @@ body,
 .board {
   height: 100%;
   width: 100%;
-  background: cornsilk;
+  background: #fff3cc;
 }
 
 .board {
