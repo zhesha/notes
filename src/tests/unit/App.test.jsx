@@ -7,7 +7,15 @@ it('reducer create initial state', () => {
   const initialState = {
     formVisible: false,
     noteList: { adding: false, loading: false, data: [] },
-    newNote: { gravatar: '', name: '', color: '', text: '' }
+    newNote: {
+      gravatar: '',
+      name: '',
+      color: '3C79D8',
+      text: '',
+      isDragging: false,
+      x: 402,
+      y: 274
+    }
   };
   expect(state).toEqual(initialState);
 });

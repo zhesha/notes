@@ -22,7 +22,7 @@ const proxy = http.createServer((req, res) => {
 
     req.on('end', function() {
       const data = JSON.parse(queryData);
-      notes.unshift(data);
+      notes.push(data);
       res.writeHead(200, header);
       res.end(JSON.stringify({ notes: notes }));
     });

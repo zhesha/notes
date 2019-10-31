@@ -1,8 +1,9 @@
 .note {
-  margin: 6px;
   padding: 10px;
   width: var(--note-size);
   height: var(--note-size);
+  position: absolute;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
 }
 
 .note .noteHead {

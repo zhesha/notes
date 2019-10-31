@@ -3,12 +3,14 @@ import messages from '../config/messages.config';
 import config from '../config';
 
 export default class Note {
-  constructor(avatar, name, color, text, date) {
+  constructor(avatar, name, color, text, date, x, y) {
     this._text = text;
     this._date = date;
     this._name = name;
     this._avatar = avatar;
     this._color = color;
+    this._x = x;
+    this._y = y;
   }
 
   get text() {
@@ -31,18 +33,28 @@ export default class Note {
     return this._color || messages.default.color;
   }
 
+  get x() {
+    return this._x || 0;
+  }
+
+  get y() {
+    return this._y || 0;
+  }
+
   asJSON() {
     return {
       text: this._text,
       date: this._date,
       name: this._name,
       avatar: this._avatar,
-      color: this._color
+      color: this._color,
+      x: this._x,
+      y: this._y
     };
   }
 
   static fromJSON(data) {
-    const { avatar, name, color, text, date } = data;
-    return new Note(avatar, name, color, text, date);
+    const { avatar, name, color, text, date, x, y } = data;
+    return new Note(avatar, name, color, text, date, x, y);
   }
 }

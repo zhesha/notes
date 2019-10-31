@@ -9,6 +9,7 @@ import Note from './models/Note';
 import { PulseLoader } from 'react-spinners';
 import colors from './config/colors.config';
 import messages from './config/messages.config';
+import DragZone from './components/DragZone';
 
 class App extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class App extends Component {
     } else {
       content = (
         <div className="board">
-          {formVisible && <NewNoteForm />}
+          <DragZone>{formVisible && <NewNoteForm />}</DragZone>
           {noteList.data.map((note, i) => (
             <NoteItem data={Note.fromJSON(note)} key={i} />
           ))}

@@ -8,7 +8,12 @@ function NoteItem({ data }) {
   return (
     <div
       className="note"
-      style={{ background: `#${data.color}`, color: `#${colors.noteContrast}` }}
+      style={{
+        background: `#${data.color}`,
+        color: `#${colors.noteContrast}`,
+        left: data.x,
+        top: data.y
+      }}
     >
       <div className="noteHead">
         {data.avatar ? (
