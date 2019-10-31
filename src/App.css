@@ -1,6 +1,11 @@
 :root {
   --note-size: 200px;
   --textarea-padding: 2px;
+  --avatar-contrast: #fff;
+  --avatar-color: #1e8cbe;
+  --note-contrast: #f3f3f3;
+  --note-contrast-hover: #d9d9d9;
+  --color-variant-highlight: #000;
 }
 
 html,
