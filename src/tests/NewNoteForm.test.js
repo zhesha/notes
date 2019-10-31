@@ -69,7 +69,7 @@ it('change color', async () => {
   expect(colors.length).toBe(8);
   fireEvent.click(colors[2]);
 
-  expect(store.getState().newNote.color).toBe('BE3934');
+  expect(store.getState().newNote.color).toBe('CC0000');
 });
 
 it('change name', async () => {
