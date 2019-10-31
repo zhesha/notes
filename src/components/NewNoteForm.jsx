@@ -108,6 +108,7 @@ function NewNoteForm({
           />
         </div>
         <textarea
+          autoFocus
           value={newNote.text}
           onChange={e => updateNewNote({ text: e.target.value })}
         />
