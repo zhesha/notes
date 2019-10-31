@@ -1,12 +1,12 @@
 const list = [
-  'A64D79',
+  '3C79D8',
+  '3D86C6',
   'A61C00',
   'CC0000',
   'E69438',
   'F1C232',
-  '3C79D8',
-  '3D86C6',
-  '674EA7'
+  '674EA7',
+  'A64D79'
 ];
 
 const colors = {
@@ -18,4 +18,17 @@ const colors = {
   list: list,
   default: list[0]
 };
+
+document.documentElement.style.setProperty(
+  '--avatar-contrast',
+  colors.gravatarContrast
+);
+document.documentElement.style.setProperty('--avatar-color', '#1e8cbe');
+document.documentElement.style.setProperty(
+  '--note-contrast',
+  colors.noteContrast
+);
+document.documentElement.style.setProperty('--note-contrast-hover', '#d9d9d9');
+document.documentElement.style.setProperty('--color-variant-highlight', '#000');
+
 export default colors;
