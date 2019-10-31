@@ -59,6 +59,7 @@
   color: var(--note-contrast);
 }
 
+.preview button,
 .newNote .formFooter button {
   width: 26px;
   height: 26px;
@@ -67,4 +68,23 @@
   outline: none;
   margin: 0;
   padding: 0;
+}
+
+.preview {
+  position: absolute;
+  z-index: 3;
+}
+
+.preview .note {
+  position: static;
+}
+
+.previewFooter {
+  position: absolute;
+  z-index: 4;
+  bottom: 10px;
+  left: 10px;
+  width: 62px;
+  display: flex;
+  justify-content: space-between;
 }

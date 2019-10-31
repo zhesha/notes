@@ -14,6 +14,7 @@ const initialState = function() {
     color: colors.default,
     text: '',
     isDragging: false,
+    isPreview: false,
     x: dragService.center().x,
     y: dragService.center().y
   };

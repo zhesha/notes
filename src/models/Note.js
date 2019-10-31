@@ -57,4 +57,10 @@ export default class Note {
     const { avatar, name, color, text, date, x, y } = data;
     return new Note(avatar, name, color, text, date, x, y);
   }
+
+  static fromState(data) {
+    const { gravatar, name, color, text, x, y } = data;
+    const trimedText = text.trim();
+    return new Note(gravatar, name, color, trimedText, new Date(), x, y);
+  }
 }

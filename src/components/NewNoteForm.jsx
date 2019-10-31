@@ -6,30 +6,75 @@ import Note from '../models/Note';
 import { connect } from 'react-redux';
 import newNoteActions from '../actions/newNote.actions';
 import formVisibleAction from '../actions/formVisible.actions';
-import noteListAction from '../actions/noteList.actions';
 import { PulseLoader } from 'react-spinners';
 import colors from '../config/colors.config';
 import messages from '../config/messages.config';
-import { FaArrowsAlt, FaCheck, FaTimes } from 'react-icons/fa';
+import {
+  FaArrowsAlt,
+  FaCheck,
+  FaTimes,
+  FaEye,
+  FaEyeSlash
+} from 'react-icons/fa';
+import NoteItem from './NoteItem';
+
+function Waiting() {
+  return (
+    <div className="newNote" style={{ background: `#${colors.newNote}` }}>
+      <div className="loader">
+        <PulseLoader size={15} color={colors.noteContrast} />
+      </div>
+    </div>
+  );
+}
+
+function Preview({ newNote, submit, updateNewNote }) {
+  return (
+    <div
+      className={'preview'}
+      style={{
+        left: newNote.x,
+        top: newNote.y
+      }}
+    >
+      <NoteItem data={Note.fromState(newNote)} preview={true} />
+      <div className="previewFooter">
+        <button type="submit" onClick={() => submit(newNote)}>
+          <FaCheck size={26} color={colors.newContrast} />
+        </button>
+        <button
+          type="button"
+          onClick={() => updateNewNote({ isPreview: false })}
+        >
+          <FaEyeSlash size={26} color={colors.newContrast} />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function NewNoteForm({
   newNote,
   hideForm,
   updateNewNote,
-  addNote,
-  cleanNewNote,
   waiting,
-  startDrag
+  startDrag,
+  submit
 }) {
   if (waiting) {
+    return <Waiting />;
+  }
+
+  if (newNote.isPreview) {
     return (
-      <div className="newNote" style={{ background: `#${colors.newNote}` }}>
-        <div className="loader">
-          <PulseLoader size={15} color={colors.noteContrast} />
-        </div>
-      </div>
+      <Preview
+        newNote={newNote}
+        submit={submit}
+        updateNewNote={updateNewNote}
+      />
     );
   }
+
   return (
     <div
       className="newNote"
@@ -42,15 +87,7 @@ function NewNoteForm({
       <form
         onSubmit={e => {
           e.preventDefault();
-          const { gravatar, name, color, text, x, y } = newNote;
-          const trimedText = text.trim();
-          if (trimedText) {
-            addNote(
-              new Note(gravatar, name, color, trimedText, new Date(), x, y)
-            );
-            cleanNewNote();
-          }
-          hideForm();
+          submit(newNote);
         }}
       >
         <div className="formHead">
@@ -74,11 +111,17 @@ function NewNoteForm({
           onChange={e => updateNewNote({ text: e.target.value })}
         />
         <div className="formFooter">
-          <button type="submit" value={messages.okBtn}>
+          <button type="submit">
             <FaCheck size={26} color={colors.newContrast} />
           </button>
           <button type="button" onClick={hideForm}>
             <FaTimes size={26} color={colors.newContrast} />
+          </button>
+          <button
+            type="button"
+            onClick={() => updateNewNote({ isPreview: true })}
+          >
+            <FaEye size={26} color={colors.newContrast} />
           </button>
           <button type="button" onMouseDown={startDrag}>
             <FaArrowsAlt size={26} color={colors.newContrast} />
@@ -102,8 +145,7 @@ export default connect(
   {
     hideForm: formVisibleAction.hideForm,
     updateNewNote: newNoteActions.updateNewNote,
-    cleanNewNote: newNoteActions.cleanNewNote,
-    addNote: noteListAction.addNote,
-    startDrag: newNoteActions.startDrag
+    startDrag: newNoteActions.startDrag,
+    submit: newNoteActions.submit
   }
 )(NewNoteForm);
