@@ -2,6 +2,7 @@ import { act } from 'react-dom/test-utils';
 import formVisibleActions from '../../../actions/formVisible.actions';
 import { fireEvent } from '@testing-library/react';
 import testUtils from '../../utils/test.utils';
+import colorsConfig from '../../../config/colors.config';
 
 let container, mock, store;
 beforeEach(async () => {
@@ -45,15 +46,16 @@ it('change avatar', async () => {
 });
 
 it('change color', async () => {
+  const wantedIndex = 2;
   const openButton = document.querySelector('.colorButton');
   expect(openButton).not.toBeNull();
   fireEvent.click(openButton);
 
   const colors = document.querySelectorAll('.colorVariant');
   expect(colors.length).toBe(8);
-  fireEvent.click(colors[2]);
+  fireEvent.click(colors[wantedIndex]);
 
-  expect(store.getState().newNote.color).toBe('CC0000');
+  expect(store.getState().newNote.color).toBe(colorsConfig.list[wantedIndex]);
 });
 
 it('change name', async () => {
