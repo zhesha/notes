@@ -2,7 +2,6 @@ import { act } from 'react-dom/test-utils';
 import formVisibleActions from '../../actions/formVisible.actions';
 import newNoteActions from '../../actions/newNote.actions';
 import testUtils from '../utils/test.utils';
-import { noteSize } from '../../services/drag.service';
 import { fireEvent } from '@testing-library/dom';
 
 let container, mock, store;

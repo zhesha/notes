@@ -44,6 +44,7 @@ function Preview({ newNote, submit, updateNewNote }) {
         </button>
         <button
           type="button"
+          data-testid="closeButton"
           onClick={() => updateNewNote({ isPreview: false })}
         >
           <FaEyeSlash size={26} color={colors.newContrast} />
@@ -118,6 +119,7 @@ function NewNoteForm({
             <FaTimes size={26} color={colors.newContrast} />
           </button>
           <button
+            data-testid="previewButton"
             type="button"
             onClick={() => updateNewNote({ isPreview: true })}
           >
