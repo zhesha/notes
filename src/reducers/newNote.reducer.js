@@ -32,9 +32,6 @@ const newNote = (state = initialState(), action) => {
       return initialState();
     }
     case newNoteActionType.DRAG: {
-      if (!state.isDragging) {
-        return state;
-      }
       const { x, y } = dragService.calculatePosition(
         action.position,
         state.x,

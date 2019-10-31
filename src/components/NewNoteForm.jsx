@@ -123,7 +123,11 @@ function NewNoteForm({
           >
             <FaEye size={26} color={colors.newContrast} />
           </button>
-          <button type="button" onMouseDown={startDrag}>
+          <button
+            data-testid="dragButton"
+            type="button"
+            onMouseDown={startDrag}
+          >
             <FaArrowsAlt size={26} color={colors.newContrast} />
           </button>
         </div>

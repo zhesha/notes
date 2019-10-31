@@ -13,6 +13,7 @@ it('reducer create initial state', () => {
       color: '3C79D8',
       text: '',
       isDragging: false,
+      isPreview: false,
       x: 402,
       y: 274
     }
