@@ -1,39 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { Provider } from 'react-redux';
-import App from '../App';
-import store from '../store';
-import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
-import formVisibleActions from '../actions/formVisible.actions';
+import formVisibleActions from '../../../actions/formVisible.actions';
 import { fireEvent } from '@testing-library/react';
+import testUtils from '../../utils/test.utils';
 
-let container;
-let mock;
+let container, mock, store;
 beforeEach(async () => {
-  mock = new MockAdapter(axios);
+  ({ container, mock, store } = testUtils.createEnvironment());
+
   mock.onGet('/').reply(200, {
     notes: []
   });
-  container = document.createElement('div');
-  document.body.appendChild(container);
-
   store.dispatch(formVisibleActions.showForm());
   await act(async () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    );
+    testUtils.createApp(container, store);
   });
 });
 afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-  mock.restore();
-  mock.reset();
+  container = testUtils.clearContainer(container);
+  testUtils.clearAxios(mock);
 });
 
 it('change text', async () => {

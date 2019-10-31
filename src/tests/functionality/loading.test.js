@@ -1,34 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { Provider } from 'react-redux';
-import App from '../../App';
-import store from '../../store';
-import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
+import testUtils from '../utils/test.utils';
 
-let container;
-let mock;
+let container, mock, store;
 beforeEach(() => {
-  mock = new MockAdapter(axios);
-  container = document.createElement('div');
-  document.body.appendChild(container);
+  ({ container, mock, store } = testUtils.createEnvironment());
 });
 afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-  mock.restore();
-  mock.reset();
+  container = testUtils.clearContainer(container);
+  testUtils.clearAxios(mock);
 });
 
 it('renders loader', () => {
   act(() => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    );
+    testUtils.createApp(container, store);
   });
   const loader = container.querySelector('.loader');
   expect(loader).not.toBeNull();
@@ -40,12 +24,7 @@ it('renders board', async () => {
   });
 
   await act(async () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    );
+    testUtils.createApp(container, store);
   });
   const board = container.querySelector('.board');
   expect(board).not.toBeNull();
@@ -55,12 +34,7 @@ it('renders error', async () => {
   mock.onGet('/').networkError();
 
   await act(async () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    );
+    testUtils.createApp(container, store);
   });
   const error = container.querySelector('.error');
   expect(error).not.toBeNull();
@@ -72,12 +46,7 @@ it('renders item', async () => {
   });
 
   await act(async () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    );
+    testUtils.createApp(container, store);
   });
   const notes = container.querySelectorAll('.note');
   expect(notes.length).toBe(1);
