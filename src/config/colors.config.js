@@ -21,12 +21,12 @@ const colors = {
 
 document.documentElement.style.setProperty(
   '--avatar-contrast',
-  colors.gravatarContrast
+  `#${colors.gravatarContrast}`
 );
 document.documentElement.style.setProperty('--avatar-color', '#1e8cbe');
 document.documentElement.style.setProperty(
   '--note-contrast',
-  colors.noteContrast
+  `#${colors.noteContrast}`
 );
 document.documentElement.style.setProperty('--note-contrast-hover', '#d9d9d9');
 document.documentElement.style.setProperty('--color-variant-highlight', '#000');
